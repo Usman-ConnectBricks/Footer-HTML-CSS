@@ -1,0 +1,133 @@
+<?php
+	include("datab/dbuni.php");
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({selector:'textarea'});</script>
+<link rel="stylesheet" type="text/css" href="uni.css" media="all" />
+<title>Lahore</title>
+<style>
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 10px;
+    background-color:#333333;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+</head>
+
+<body>
+<div>
+<div class="background">
+<div class="fusio">
+ <div class="transbox" align="center">
+	<p><b>INSERT PRODUCTS</b></p>
+  
+  <style>
+div.transbox {
+    margin: 0px;
+    background-color:#333333;
+    border: 1px solid black;
+    opacity: 0.2;
+    filter: alpha(opacity=60);
+	background-image:url(images/logo.gif);
+}
+div.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #FFFFFF;
+	font-family:sans-serif;
+	font-size:36px;
+}
+</style>
+</div>
+</div>
+<div class="navbar">
+<ul>
+	<li><a href="#">Home</a></li>
+	<li><a href="#"> Categories</a></li>
+	<li><a href="#"> Login</a></li>
+<form class="searchbar">
+  <input type="text" name="search" placeholder="Search..">
+</form>
+</ul>
+</div>
+<div class="mainbody">
+<section>
+	<div id="bigwrapper">
+    <div class="titlediv">
+    	<h1>INSERT PRODUCTS</h1>
+      </div>
+	<div class="clear"></div>
+    
+    
+    <div id="leftwrapper">
+    <h2>Products Description</h2>
+    <p> Before inserting the products make sure that product's label is attached. and the product must be made by FUSIO. this site is only for shoewares, make sure the product is not torn or the color of a product is not fades away. thanks to be a part of FUSIO :)</p>
+    </div>
+      
+    <div id="rightwrapper">
+    <h2>INSERT PRODUCTS</h2>
+    <p>If you want to insert product,please fill form.<br></p>
+<form method="post" action="" enctype="multipart/form-data">
+<table>
+	<tr>
+		<td><h1>product title:</h1></td>
+		<td><input type="subtext" name="p_title" placeholder="Type Title" /></td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td><h1>Product Description:</h1></td>
+		<td><textarea name="p_desc" cols="10" rows="5" placeholder="type here"></textarea></td>
+	</tr>
+</table>
+<table>
+<tr>
+	<td><h1>Product Keyword:</h1></td>
+	<td><input type="subtext" name="p_keyword" placeholder="Type the keyword" /></td>
+</tr>
+<table align="right" style="background-color:#666666">
+	<tr>
+		<td><input type="submit" name="submit" value="Submit"/></td>
+	</tr>
+</table>
+</form>
+	</div>
+	<div class="clear"></div>     
+</div>
+</section>
+
+</div>
+</div>
+</div>
+<?php
+	if(isset($_POST['submit']))
+	{
+		$p_title=$_POST['p_title'];
+		$p_desc=$_POST['p_desc'];
+		$p_keyword=$_POST['p_keyword'];
+
+$_query="INSERT INTO lahore(p_title,p_desc,p_keyword) VALUES('$p_title','$p_desc','$p_keyword')";
+	$_query=mysqli_query($connection,$_query);
+	}
+?>
+
+</body>
+</html>
